@@ -1,0 +1,23 @@
+{% extends 'nav.html' %}
+
+    {% block content %}
+     
+    <h1> Search une image :  </h1> 
+    <form action="/search_image" method="post" enctype="multipart/form-data" >
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Example file input</label>
+      <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+      <br>
+      <input type="submit" class="btn btn-dark" value="Upload Image" name="submit">
+    </div>
+  </form>
+  <img src="{{url_for('static',filename = name)}}" height="200px">
+    <h1> result </h1> 
+
+    {% for im in list %}
+    
+
+    <img src="{{url_for('static',filename = im)}}" height="200px">
+    {% endfor %}
+
+    {% endblock%}
